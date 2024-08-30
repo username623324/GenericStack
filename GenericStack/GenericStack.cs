@@ -8,6 +8,7 @@ namespace GenericStack
     {
 
         private DoublyLinkedList<T> _list;
+        private IStack<T> _stackImplementation;
 
         public GenericStackUsingDoubly()
         {
@@ -39,8 +40,10 @@ namespace GenericStack
             return _list.Head.Data;
         }
 
-
-
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
     public class GenericStackUsingSingly<T>: IStack<T>
     {

@@ -65,6 +65,7 @@ namespace GenericStack
             foreach (int i in st)
             {
                 Console.Write($"{i}, ");
+                sequence += $"{i}, ";
             }
 
 
