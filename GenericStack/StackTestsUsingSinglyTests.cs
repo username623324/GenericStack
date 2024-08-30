@@ -44,8 +44,9 @@ namespace GenericStack
         {
             var st = new GenericStackUsingDoubly<int>();
             st.Push(4);
+            
 
-            var x = st.Pop();
+            var x = st.Pop();//should fail bcuz stack is empty
 
             Assert.That(st.IsEmpty, Is.False);
             Assert.That(st.Peek(), Is.EqualTo(77));
