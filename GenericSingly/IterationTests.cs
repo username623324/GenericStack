@@ -17,6 +17,7 @@ namespace GenericSingly
             list.AddToTail(2);
             list.AddToTail(3);
             list.AddToTail(4);
+
             //Act
             var s = string.Empty;
             foreach (var node in list)

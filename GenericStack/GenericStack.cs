@@ -8,7 +8,7 @@ namespace GenericStack
     {
 
         private DoublyLinkedList<T> _list;
-        private IStack<T> _stackImplementation;
+        
 
         public GenericStackUsingDoubly()
         {
@@ -24,25 +24,33 @@ namespace GenericStack
         public void Push(T element)
         {
             _list.AddToHead(element);
-            
+            _isEmpty = false;
+
         }
 
         public T Pop()
         {
+            if (_list.Head == null) throw new InvalidOperationException("Stack is empty.");
             var element = _list.Head.Data;
             _list.RemoveFromHead();
+
+            if (_list.Head == null) _isEmpty = true;
+
             return element;
         }
 
         public T Peek()
         {
-            if (_list.Head == null) throw new InvalidOperationException("Stack is Empty");
+            if (_list.Head == null) throw new InvalidOperationException("Stack is empty.");
             return _list.Head.Data;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (GenericDoublyLinkedList.Node<T> a in _list)
+            {
+                yield return a.Data;
+            }
         }
     }
     public class GenericStackUsingSingly<T>: IStack<T>

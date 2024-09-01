@@ -1,9 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Collections;
+using System.ComponentModel;
 using System.Net.NetworkInformation;
 
 namespace GenericDoublyLinkedList
 {
-    public class DoublyLinkedList<T>
+    public class DoublyLinkedList<T> : IEnumerable
     {
         public Node<T> Head { get; set; }
         public Node<T> Tail { get; set; }
@@ -95,6 +96,10 @@ namespace GenericDoublyLinkedList
             }
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
